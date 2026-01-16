@@ -20,7 +20,8 @@ const LoginScreen: React.FC = () => {
 
   const handleLogin = (): void => {
     // Add login logic here
-    console.log('Login with:', username, password);
+    // console.log('Login with:', username, password);
+    navigation.navigate('(tabs)');
   };
 
   return (

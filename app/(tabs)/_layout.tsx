@@ -1,8 +1,8 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { Image } from 'react-native';
 
 import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
@@ -20,7 +20,7 @@ export default function TabLayout() {
           borderTopColor: '#E0E0E0',
           backgroundColor: '#FFFFFF',
           paddingVertical: 10,
-          height: 80,
+          height: 60,
         },
         tabBarLabelStyle: {
           fontSize: 12,
@@ -31,28 +31,45 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require('../../assets/icons/home.png')}
+              style={{ width: 24, height: 24, tintColor: color }}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="booking"
         options={{
           title: 'Booking',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="calendar" color={color} />,
+          tabBarIcon: ({ color }) => (<Image
+            source={require('../../assets/icons/booking.png')}
+            style={{ width: 24, height: 24, tintColor: color }}
+          />
+          ),
         }}
       />
       <Tabs.Screen
         name="chat"
         options={{
           title: 'Chat',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="bubble.left.fill" color={color} />,
+          tabBarIcon: ({ color }) => (<Image
+            source={require('../../assets/icons/chat.png')}
+            style={{ width: 24, height: 24, tintColor: color }}
+          />
+          ),
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.fill" color={color} />,
+          tabBarIcon: ({ color }) => (<Image
+            source={require('../../assets/icons/user.png')}
+            style={{ width: 24, height: 24, tintColor: color }}
+          />
+          ),
         }}
       />
     </Tabs>

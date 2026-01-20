@@ -1,7 +1,9 @@
 // screens/HomeScreen.tsx
 import type { Barbershop } from '@/components/home';
+import { FilterBottomSheet, FilterBottomSheetRef } from '@/components/home/Filter';
+import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   ScrollView,
@@ -90,6 +92,15 @@ const LoadingFallback = () => (
 
 const HomeScreen: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const filterSheetRef = useRef<FilterBottomSheetRef>(null);
+
+  const handlePresentFilter = () => {
+    filterSheetRef.current?.present();
+  };
+
+  const handleSeeAll = () => {
+    router.push('/explore');
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -110,17 +121,24 @@ const HomeScreen: React.FC = () => {
           <SearchBar
             value={searchQuery}
             onChangeText={setSearchQuery}
+            onFilterPress={handlePresentFilter}
           />
         </Suspense>
 
         {/* Nearest Barbershops */}
         <Suspense fallback={<LoadingFallback />}>
-          <NearestBarbershops barbershops={nearestBarbershops} />
+          <NearestBarbershops
+            barbershops={nearestBarbershops}
+            onSeeAllPress={handleSeeAll}
+          />
         </Suspense>
 
         {/* Most Recommended */}
         <Suspense fallback={<LoadingFallback />}>
-          <RecommendedBarbershops barbershops={recommendedBarbershops} />
+          <RecommendedBarbershops
+            barbershops={recommendedBarbershops}
+            onSeeAllPress={handleSeeAll}
+          />
         </Suspense>
 
         {/* Find a barber nearby */}
@@ -128,6 +146,7 @@ const HomeScreen: React.FC = () => {
           <FindNearby />
         </Suspense>
       </ScrollView>
+      <FilterBottomSheet ref={filterSheetRef} />
     </SafeAreaView>
   );
 };

@@ -34,7 +34,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <Image
               source={require('../../assets/icons/home.png')}
-              style={{ width: 24, height: 24, tintColor: color }}
+              style={{ width: 16, height: 16, tintColor: color }}
             />
           ),
         }}
@@ -45,7 +45,7 @@ export default function TabLayout() {
           title: 'Booking',
           tabBarIcon: ({ color }) => (<Image
             source={require('../../assets/icons/booking.png')}
-            style={{ width: 24, height: 24, tintColor: color }}
+            style={{ width: 16, height: 16, tintColor: color }}
           />
           ),
         }}
@@ -56,7 +56,7 @@ export default function TabLayout() {
           title: 'Chat',
           tabBarIcon: ({ color }) => (<Image
             source={require('../../assets/icons/chat.png')}
-            style={{ width: 24, height: 24, tintColor: color }}
+            style={{ width: 16, height: 16, tintColor: color }}
           />
           ),
         }}
@@ -67,7 +67,7 @@ export default function TabLayout() {
           title: 'Profile',
           tabBarIcon: ({ color }) => (<Image
             source={require('../../assets/icons/user.png')}
-            style={{ width: 24, height: 24, tintColor: color }}
+            style={{ width: 16, height: 16, tintColor: color }}
           />
           ),
         }}

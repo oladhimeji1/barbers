@@ -28,7 +28,7 @@ export const NearestBarbershops: React.FC<NearestBarbershopsProps> = ({
 
 const styles = StyleSheet.create({
     section: {
-        marginBottom: 30,
+        marginBottom: 10,
         paddingHorizontal: 20,
     },
     sectionHeader: {

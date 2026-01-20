@@ -20,22 +20,22 @@ export const Banner: React.FC<BannerProps> = ({
         <>
             {hasBooking ? (
                 <View style={styles.bookedCard}>
-                    <Text style={styles.bookedTitle}>Varcity Barbershop Jogja ex The Varcher</Text>
+                    <Text style={styles.bookedTitle}>Top Boyz Salon & Spa</Text>
                     <View style={styles.bookedLocation}>
                         <Text style={styles.locationIcon}>📍</Text>
-                        <Text style={styles.bookedLocationText}>Condongcatur (10 km)</Text>
+                        <Text style={styles.bookedLocationText}>Gwarimpa, Abuja</Text>
                     </View>
                     <View style={styles.bookedDetails}>
                         <View style={styles.bookedSchedule}>
                             <Text style={styles.scheduleIcon}>📅</Text>
                             <View>
                                 <Text style={styles.scheduleLabel}>Booking schedule</Text>
-                                <Text style={styles.scheduleValue}>15 Jan, 08 : 00 AM</Text>
+                                <Text style={styles.scheduleValue}>20 Jan, 08 : 00 PM</Text>
                             </View>
                         </View>
                         <View style={styles.bookedEstimation}>
                             <Text style={styles.estimationLabel}>Time estimation</Text>
-                            <Text style={styles.estimationValue}>~50 menit</Text>
+                            <Text style={styles.estimationValue}>~50 mins</Text>
                         </View>
                     </View>
                     <TouchableOpacity style={styles.mapsButton}>

@@ -1,5 +1,6 @@
-import { useNavigation } from '@react-navigation/native';
+import { router } from 'expo-router';
 import React, { useState } from 'react';
+
 import {
   Image,
   ScrollView,
@@ -81,7 +82,6 @@ const mockBooking: BookingData = {
 };
 
 const BookingScreen: React.FC = () => {
-  const navigation = useNavigation();
   const [activeTab, setActiveTab] = useState<BookingTab>('active');
   const [bookingStatus, setBookingStatus] = useState<BookingStatus>('booked');
 
@@ -166,7 +166,7 @@ const BookingScreen: React.FC = () => {
       </Text>
       <TouchableOpacity
         style={styles.ratingButton}
-        onPress={() => navigation.navigate('/')}
+        onPress={() => router.push('/rating-review')}
       >
         <Text style={styles.ratingButtonText}>Rating & review 👍</Text>
       </TouchableOpacity>
@@ -175,6 +175,7 @@ const BookingScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+
       <View style={styles.header}>
         <Text style={styles.title}>Booking</Text>
         <Image source={require('../../assets/images/barber1.jpg')} style={styles.logo} />
@@ -192,8 +193,7 @@ const BookingScreen: React.FC = () => {
         <TouchableOpacity
           style={[styles.tab, activeTab === 'history' && styles.tabActive]}
           onPress={() => {
-            setActiveTab('history');
-            navigation.navigate('BookingHistory');
+            router.push('/booking-history');
           }}
         >
           <Text style={[styles.tabText, activeTab === 'history' && styles.tabTextActive]}>

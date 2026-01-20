@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({
     location = 'Gwarimpa',
-    userName = 'Joe Samanta',
+    userName = 'Oladimeji',
     profileImage = require('../../assets/images/2151155329.jpg'),
 }) => {
     return (

@@ -99,16 +99,8 @@ const ExploreBarbersScreen: React.FC = () => {
     );
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container} edges={['bottom', 'left', 'right']}>
             <ScrollView showsVerticalScrollIndicator={false}>
-                {/* Header */}
-                <View style={styles.header}>
-                    <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <Text style={styles.backIcon}>←</Text>
-                    </TouchableOpacity>
-                    <Text style={styles.title}>Explore Barbers</Text>
-                    <View style={styles.placeholder} />
-                </View>
 
                 {/* Featured Card */}
                 <View style={styles.featuredCard}>
@@ -153,7 +145,7 @@ const ExploreBarbersScreen: React.FC = () => {
                     </View>
                     <TouchableOpacity
                         style={styles.filterButton}
-                        onPress={() => navigation.navigate('./home/Filter')}
+                    // onPress={() => navigation.navigate('filter')}
                     >
                         <Text style={styles.filterIcon}>⚙️</Text>
                     </TouchableOpacity>
@@ -205,7 +197,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 10,
     },
     backIcon: {
         fontSize: 24,

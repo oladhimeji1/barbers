@@ -10,6 +10,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import { RefreshControl } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Lazy load components for better performance
@@ -24,24 +25,24 @@ const FindNearby = lazy(() => import('@/components/home/FindNearby').then(module
 const nearestBarbershops: Barbershop[] = [
   {
     id: '1',
-    name: 'Alana Barbershop - Haircut massage & Spa',
-    location: 'Banguntapan',
+    name: 'Top Boyz Salon & Spa',
+    location: 'Gwarimpa, Abuja',
     distance: '5 km',
     rating: 4.5,
     image: require('../../assets/images/barber1.jpg'),
   },
   {
     id: '2',
-    name: 'Hercha Barbershop - Haircut & Styling',
-    location: 'Jalan Kaliurang',
+    name: 'Davido Barbershop',
+    location: 'Gwarimpa, Abuja',
     distance: '8 km',
     rating: 5.0,
     image: require('../../assets/images/barber2.jpg'),
   },
   {
     id: '3',
-    name: 'Barberking - Haircut styling & massage',
-    location: 'Jogja Expo Centre',
+    name: 'Number 1 barbers shop',
+    location: 'Gwarimpa, Abuja',
     distance: '12 km',
     rating: 4.5,
     image: require('../../assets/images/barber3.jpg'),
@@ -102,8 +103,13 @@ const HomeScreen: React.FC = () => {
     router.push('/explore');
   };
 
+  const handleRefresh = () => {
+    // console.log('refreshing');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
+      <RefreshControl refreshing={false} onRefresh={handleRefresh}></RefreshControl>
       <StatusBar style="dark" />
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header */}
